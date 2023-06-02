@@ -1,13 +1,11 @@
 package com.dixmillescodeurs.poo.hello.model;
 
 
-public class Ouvrier extends Employe {
-    /*public Ouvrier(String nom, String prenom, int age) {
-        super(nom, prenom, age);
-    }*/
+import com.dixmillescodeurs.poo.hello.utils.Util;
 
-    @Override
+public class Ouvrier extends Employe {
+
     public double calculSalaire() {
-        return this.getAnciennete()*5000;
+        return (double)this.getAnciennete() * Util.SALAIRE_BASE;
     }
 }

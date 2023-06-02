@@ -9,6 +9,7 @@ import java.util.List;
 @Component
 public class DirecteurDao {
     public List<Directeur> getAll(){
+        DatabaseRessourceHumain.getInstance().stream().forEach(System.out::println);
         return DatabaseRessourceHumain.getInstance();
     }
 

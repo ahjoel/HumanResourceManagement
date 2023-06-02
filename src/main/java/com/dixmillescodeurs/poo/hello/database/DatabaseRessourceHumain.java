@@ -21,7 +21,7 @@ public final class DatabaseRessourceHumain {
     }
 
     public static List<Directeur> getInstance() {
-        if (Optional.ofNullable(directeurs).isPresent()) {
+        if (!Optional.ofNullable(directeurs).isPresent()) {
             directeurs = getListDirecteurFromDatabase();
         }
         return directeurs;
@@ -33,6 +33,7 @@ public final class DatabaseRessourceHumain {
         var directeur3 = Directeur.builder().nom("BONKONGOU").prenom("Florent").age(41).build();
 
         //Ajout de directeur
+        List<Directeur> directeurs = new ArrayList();
         directeurs.add(directeur1);
         directeurs.add(directeur2);
         directeurs.add(directeur3);
