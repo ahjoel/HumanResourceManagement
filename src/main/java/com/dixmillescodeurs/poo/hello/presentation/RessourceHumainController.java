@@ -22,4 +22,22 @@ public class RessourceHumainController {
 		return "listeDirecteurs";
 	}
 
+	@GetMapping("/agemoyen")
+	public String ageMoyenDesDirecteursMaj(Model model) {
+		var ageMoyen = ressourceHumainService.ageMoyenDesDirecteursMajeur();
+
+		model.addAttribute("ageMoyen", ageMoyen);
+
+		return "agemoyendirecteurs";
+	}
+
+	@GetMapping("/majeur")
+	public String nomPremierDirecteurMaj(Model model) {
+		var nomMaj = ressourceHumainService.nomPremierDirecteurMajeur();
+
+		model.addAttribute("nomMaj", nomMaj);
+
+		return "premiermajeur";
+	}
+
 }
