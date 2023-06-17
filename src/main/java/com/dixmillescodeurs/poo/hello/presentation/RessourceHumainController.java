@@ -10,34 +10,50 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class RessourceHumainController {
 
-	@Autowired
-	private RessourceHumainService ressourceHumainService;
+    @Autowired
+    private RessourceHumainService ressourceHumainService;
 
-	@GetMapping("/listedirecteurs")
-	public String listeDirecteurs(Model model) {
-		var directeurs = ressourceHumainService.listeDesDirecteurs();
+    @GetMapping("/listedirecteurs")
+    public String listeDirecteurs(Model model) {
+        var directeurs = ressourceHumainService.listeDesDirecteurs();
 
-		model.addAttribute("directeurs", directeurs);
+        model.addAttribute("directeurs", directeurs);
 
-		return "listeDirecteurs";
-	}
+        return "listeDirecteurs";
+    }
 
-	@GetMapping("/agemoyen")
-	public String ageMoyenDesDirecteursMaj(Model model) {
-		var ageMoyen = ressourceHumainService.ageMoyenDesDirecteursMajeur();
 
-		model.addAttribute("ageMoyen", ageMoyen);
+    @GetMapping("/agemoyen")
+    public String ageMoyenDesDirecteursMaj(Model model) {
+        var ageMoyen = ressourceHumainService.ageMoyenDesDirecteursMajeur();
 
-		return "agemoyendirecteurs";
-	}
+        model.addAttribute("ageMoyen", ageMoyen);
 
-	@GetMapping("/majeur")
-	public String nomPremierDirecteurMaj(Model model) {
-		var nomMaj = ressourceHumainService.nomPremierDirecteurMajeur();
+        return "agemoyendirecteurs";
+    }
 
-		model.addAttribute("nomMaj", nomMaj);
+    @GetMapping("/majeur")
+    public String nomPremierDirecteurMaj(Model model) {
+        var nomMaj = ressourceHumainService.nomPremierDirecteurMajeur();
 
-		return "premiermajeur";
-	}
+        model.addAttribute("nomMaj", nomMaj);
+
+        return "premiermajeur";
+    }
+
+    @GetMapping("/voyages")
+    public String listevoyages(Model model) {
+
+        var directeurs = ressourceHumainService.listeDesDirecteurs();
+
+        model.addAttribute("directeurs", directeurs);
+
+        return "voyages";
+    }
+
+    @GetMapping("/reservation")
+    public String formreservation(Model model) {
+        return "reservation";
+    }
 
 }
